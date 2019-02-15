@@ -1,0 +1,56 @@
+#include <stdio.h>
+
+struct dt{
+    int dia;
+    int mes;
+    int ano;
+};
+int main()
+{
+    struct dt pd;
+    struct dt sd;
+    struct dt fn;
+    printf("Informe a primeira data: ");
+    scanf("%d/%d/%d", &pd.dia, &pd.mes, &pd.ano);
+    printf("Informe a segunda data: ");
+    scanf("%d/%d/%d", &sd.dia, &sd.mes, &sd.ano);
+    fn.dia = (pd.dia-sd.dia);
+    if(fn.dia<0){
+             fn.mes = pd.mes - sd.mes;
+        if(fn.mes<0){
+            fn.mes = (fn.mes*(-1));
+            fn.ano = pd.ano-sd.ano;
+            if(fn.ano<0){
+             fn.ano = (fn.ano*(-1));
+         }
+        }else{
+         fn.ano = pd.ano-sd.ano;
+         if(fn.ano<0){
+             fn.ano = (fn.ano*(-1));
+         }
+        }   
+    }else{
+        fn.mes = pd.mes - sd.mes;
+        if(fn.mes<0){
+            fn.mes = (fn.mes*(-1));
+            fn.ano = pd.ano-sd.ano;
+            if(fn.ano<0){
+             fn.ano = (fn.ano*(-1));
+         }
+        }else{
+         fn.ano = pd.ano-sd.ano;
+         if(fn.ano<0){
+             fn.ano = (fn.ano*(-1));
+         }
+        }
+    }
+    fn.dia = (fn.dia+(30*fn.mes));
+    fn.dia = (fn.dia+(365*fn.ano));
+    if(fn.dia<0){
+        fn.dia = (fn.dia*(-1));
+        printf("O valor total de dias é: %d.", fn.dia);
+    }else{
+        printf("O valor total de dias é: %d.", fn.dia);
+    }
+    return 0;
+}
